@@ -13,7 +13,7 @@
         </form>
         <div id="container"></div>
         <script type="text/javascript">
-            const url = `ws://${window.location.host}/ws/my-socket/`;
+            const url = `wss://${window.location.host}/ws/my-socket/`;
             const chatSocket = new WebSocket(url);
             chatSocket.onmessage = (resp) => {
                 let data = JSON.parse(resp.data);
