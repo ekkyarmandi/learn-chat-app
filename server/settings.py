@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-uhl(t@psw2vgu!th%l5wtz42m30kz-$q0@xt5uc_h-k607svs4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['ekky-chat-app.herokuapp.com','127.0.0.1','localhost']
 
@@ -79,7 +79,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            'hosts': [('127.0.0.1')]
+            'hosts': [os.environ.get('REDIS_URL','redis://localhost:6379')]
         }
     }
 }
